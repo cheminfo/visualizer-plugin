@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="Visualizer" name="Create Runnable Jar for Project visualizerPlugin">
+	
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="visualizerPlugin">
+    	<mkdir dir="jars" />
+        <jar destfile="./jars/visualizerPlugin.jar" filesetmanifest="mergewithoutmain">
+            <fileset dir="bin">
+            	<exclude name="**/test/**" />
+            	<exclude name="*/test/*.class" />
+            	<exclude name="**/*.jpg" />
+            	<include name="**/*.class" />
+            	<include name="**/*.js" />
+            	<include name="**/*.txt" />
+            	<include name="plugin.properties" />
+            </fileset>
+        </jar>
+    </target>
+	
+	<target name="Visualizer" depends="visualizerPlugin">
+		<copy todir="/usr/local/script/plugins">
+		  <fileset dir="./jars/"
+		           includes="visualizerPlugin.jar"
+		  />
+		</copy>
+	</target>
+</project>
