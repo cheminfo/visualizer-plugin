@@ -135,7 +135,7 @@ var Visualizer = {
 			var yVal = (options.yValues || 2) - 1;
 			var infos = options.infos || null;
 
-			var data = pca.prediction.data;
+			var data = pca.data;
 
 			if (!data[0][xVal] || !data[0][yVal])
 				throw "xValues or yValues option is wrong";
@@ -329,7 +329,7 @@ Visualizer.Chart.Serie.prototype = {
 		addPoint : function(x, y, info) {
 			this.value.x.push(x);
 			this.value.y.push(y);
-			this.value.infos.push(info);
+			this.value.info.push(info);
 			return this;
 		},
 
